@@ -1,0 +1,185 @@
+@mixin center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@mixin centerX {
+  display: flex;
+  justify-content: center;
+}
+@mixin centerY {
+  display: flex;
+  align-items: center;
+}
+@mixin between {
+  display: flex;
+  justify-content: space-between;
+}
+$font: "Work Sans", sans-serif;
+
+#footer {
+  @include centerY;
+  flex-direction: column;
+  // height: 1280px;
+  width: 100%;
+
+  .footer {
+    @include centerY;
+    margin-top: 40px;
+    flex-direction: column;
+    width: 100%;
+    height: 334px;
+    background-color: #3b3b3b;
+    padding: 40px 195px;
+    display: flex;
+    gap: 30px;
+    transition: all 1s;
+    &__up {
+      width: 1049.41px;
+      height: 191px;
+      @include between;
+      padding: 0px;
+      gap: 31px;
+      flex-direction: row;
+      &__left {
+        display: flex;
+        flex-direction: column;
+        width: 327.41px;
+        height: 191px;
+        gap: 30px;
+        &__logo {
+          width: 243.41px;
+          height: 32px;
+        }
+        &__info {
+          display: flex;
+          flex-direction: column;
+          gap: 30px;
+          width: 238px;
+          height: 129px;
+          color: #cccccc;
+          p {
+            font-weight: 400;
+            font-size: 16px;
+            font-family: $font;
+            width: 238px;
+            height: 44px;
+          }
+          &__community {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 238px;
+            height: 65px;
+            p {
+              font-weight: 400;
+              font-size: 16px;
+              font-family: $font;
+            }
+            &__icons {
+            }
+          }
+        }
+      }
+      &__middle {
+        display: flex;
+        flex-direction: column;
+        width: 240px;
+        height: 166px;
+        gap: 25px;
+        &__title {
+          color: #ffffff;
+          font-weight: 700;
+          font-size: 22px;
+          font-family: $font;
+        }
+        &__body {
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+          color: #cccccc;
+          font-weight: 400;
+          font-size: 16px;
+          font-family: $font;
+        }
+      }
+      &__right {
+        display: flex;
+        flex-direction: column;
+        width: 420px;
+        height: 184px;
+        gap: 25px;
+        padding: 0px;
+        &__title {
+          p {
+            color: #ffffff;
+            font-weight: 700;
+            font-family: $font;
+            font-size: 22px;
+            text-transform: capitalize;
+          }
+        }
+        &__body {
+          position: relative;
+          display: flex;
+          flex-direction: column;
+          padding: 0px;
+          gap: 20px;
+          width: 420px;
+          height: 124px;
+          p {
+            font-weight: 400;
+            font-size: 16px;
+            font-family: $font;
+            color: #cccccc;
+            line-height: 140%;
+          }
+          button {
+            width: 179px;
+            height: 60px;
+            position: absolute;
+            background-color: #a259ff;
+            border-radius: 20px;
+            padding: 0px 50px;
+            border: none;
+            right: 0px;
+            bottom: 0px;
+            color: #ffffff;
+            transition: all 0.3s ease;
+            &:hover {
+              transform: scale(0.95);
+              cursor: pointer;
+            }
+          }
+          input {
+            width: 420px;
+            height: 60px;
+            padding: 16px 0px 16px 20px;
+            background-color: #ffffff;
+            border-radius: 20px;
+            border: none;
+          }
+        }
+      }
+    }
+    &__down {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      width: 1049.41px;
+      height: 33px;
+      hr {
+        width: 1049.41px;
+        height: 0px;
+        border: 1px solid #858584;
+      }
+      p {
+        font-family: $font;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 110%;
+        color: #cccccc;
+      }
+    }
+  }
+}
