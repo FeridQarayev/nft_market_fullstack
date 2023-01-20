@@ -308,3 +308,133 @@
     }
   }
 }
+@media screen and (max-width: 834px) {
+  .headline {
+    padding: 30px 0px;
+    &__container {
+      width: 315px;
+      &__top__text {
+        line-height: 39.2px;
+        font-size: 28px;
+      }
+      &__down {
+        p {
+          line-height: 22.4px;
+          font-size: 16px;
+          white-space: normal;
+        }
+      }
+    }
+  }
+  .frame__container {
+    width: 315px;
+    &__tab__text {
+      color: transparent;
+      font-size: 0;
+    }
+    &__tab__text::after {
+      line-height: 22.4px;
+      font-size: 16px;
+      content: "1d";
+      background-color: transparent;
+      letter-spacing: 0px;
+      mix-blend-mode: normal;
+      position: relative;
+      text-align: center;
+      white-space: nowrap;
+      width: fit-content;
+      color: #ffffff;
+      font-family: "Work Sans", Helvetica;
+      font-style: normal;
+      font-weight: 600;
+    }
+    &__tabD__text {
+      line-height: 22.4px;
+      font-size: 16px;
+      color: transparent;
+      font-size: 0;
+    }
+  }
+  .frame__container :nth-of-type(2) .frame__container__tabD__text::after {
+    background-color: transparent;
+    letter-spacing: 0px;
+    mix-blend-mode: normal;
+    position: relative;
+    text-align: center;
+    white-space: nowrap;
+    width: fit-content;
+    color: #858584;
+    font-family: "Work Sans", Helvetica;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 22.4px;
+    font-size: 16px;
+    content: "7d";
+  }
+  .frame__container :nth-of-type(3) .frame__container__tabD__text::after {
+    background-color: transparent;
+    letter-spacing: 0px;
+    mix-blend-mode: normal;
+    position: relative;
+    text-align: center;
+    white-space: nowrap;
+    width: fit-content;
+    color: #858584;
+    font-family: "Work Sans", Helvetica;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 22.4px;
+    font-size: 16px;
+    content: "30d";
+  }
+  .frame__container :nth-of-type(4) .frame__container__tabD__text {
+    background-color: transparent;
+    letter-spacing: 0px;
+    mix-blend-mode: normal;
+    position: relative;
+    text-align: center;
+    white-space: nowrap;
+    width: fit-content;
+    color: #858584;
+    font-family: "Work Sans", Helvetica;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 22.4px;
+    font-size: 16px;
+  }
+  .table__header {
+    height: auto;
+    width: 317px;
+    &__container {
+      width: 315px;
+      &__left {
+        width: 215px;
+        gap: 10px;
+        &__icon {
+          width: 24px;
+        }
+        &__text {
+          flex: 1;
+          margin-top: 0;
+          line-height: 13.2px;
+          font-size: 12px;
+        }
+      }
+      &__right {
+        div {
+          width: 100px;
+          div {
+            line-height: 13.2px;
+            font-size: 12px;
+          }
+        }
+        &__sold {
+          display: none !important;
+        }
+        &__change {
+          display: none !important;
+        }
+      }
+    }
+  }
+}
