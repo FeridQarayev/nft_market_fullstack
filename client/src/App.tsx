@@ -1,14 +1,9 @@
-import React from "react";
-import Footer from "./components/footer";
-import Navbar from "./components/navbar";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { ROUTES } from "./routers/router";
+const router = createBrowserRouter(ROUTES);
 
 function App() {
-  return (
-    <div>
-      <Navbar />
-      <Footer />
-    </div>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;
