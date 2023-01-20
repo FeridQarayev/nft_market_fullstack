@@ -222,23 +222,27 @@ function Home() {
               </div>
             </div>
             <div className={style.table__header__container__right}>
-              <div className={style.table__header__container__right__item}>
+              <div className={style.table__header__container__right__change}>
                 <div
-                  className={style.table__header__container__right__item__text}
+                  className={
+                    style.table__header__container__right__change__text
+                  }
                 >
                   Change
                 </div>
               </div>
-              <div className={style.table__header__container__right__item}>
+              <div className={style.table__header__container__right__sold}>
                 <div
-                  className={style.table__header__container__right__item__text}
+                  className={style.table__header__container__right__sold__text}
                 >
                   NFTs Sold
                 </div>
               </div>
-              <div className={style.table__header__container__right__item}>
+              <div className={style.table__header__container__right__volume}>
                 <div
-                  className={style.table__header__container__right__item__text}
+                  className={
+                    style.table__header__container__right__volume__text
+                  }
                 >
                   Volume
                 </div>
