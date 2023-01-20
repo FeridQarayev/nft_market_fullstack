@@ -1,13 +1,21 @@
 import React from "react";
 import "./artist.scss";
-
-function Artist() {
+interface IArtist {
+  id: number;
+  name: string;
+  change: number;
+  sold: number;
+  volume: number;
+  img: string;
+}
+function Artist(data: { artist: IArtist }) {
+  const { artist } = data;
   return (
     <div className="artist">
       <div className="artist__body">
         <div className="artist__body__left">
           <div className="artist__body__left__number">
-            <div>1</div>
+            <div style={artist.id > 9 ? { left: "5px" } : {}}>{artist.id}</div>
           </div>
           <div className="artist__body__left__card">
             <div className="artist__body__left__card__img">
@@ -17,7 +25,7 @@ function Artist() {
                     className="
                       artist__body__left__card__img__avatar
                     "
-                    src={require("../../images/artist/avatar-placeholder-5@2x.png")}
+                    src={require(`../../images/artist/${artist.img}`)}
                     alt="Avatar Placeholder"
                   />
                 </div>
@@ -25,20 +33,24 @@ function Artist() {
             </div>
             <div className="artist__body__left__card__name">
               <div className="artist__body__left__card__name__text">
-                Jaydon Ekstrom Bothman
+                {artist.name}
               </div>
             </div>
           </div>
         </div>
         <div className="artist__body__right">
           <div className="artist__body__right__item">
-            <div className="artist__body__right__item__change">+1.41%</div>
+            <div className="artist__body__right__item__change">
+              +{artist.change}%
+            </div>
           </div>
           <div className="artist__body__right__item">
-            <div className="artist__body__right__item__sold">602</div>
+            <div className="artist__body__right__item__sold">{artist.sold}</div>
           </div>
           <div className="artist__body__right__item">
-            <div className="artist__body__right__item__volume">12.4 ETH</div>
+            <div className="artist__body__right__item__volume">
+              {artist.volume} ETH
+            </div>
           </div>
         </div>
       </div>
