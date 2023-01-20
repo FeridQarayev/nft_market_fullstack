@@ -39,15 +39,15 @@ function Artist(data: { artist: IArtist }) {
           </div>
         </div>
         <div className="artist__body__right">
-          <div className="artist__body__right__item">
+          <div className="artist__body__right__item change">
             <div className="artist__body__right__item__change">
               +{artist.change}%
             </div>
           </div>
-          <div className="artist__body__right__item">
+          <div className="artist__body__right__item sold">
             <div className="artist__body__right__item__sold">{artist.sold}</div>
           </div>
-          <div className="artist__body__right__item">
+          <div className="artist__body__right__item volume">
             <div className="artist__body__right__item__volume">
               {artist.volume} ETH
             </div>
