@@ -222,3 +222,14 @@
     transform: scale(0.95);
   }
 }
+
+@media screen and (max-width: 1280px) {
+  .nft {
+    min-width: 325px;
+    &__img {
+      img {
+        min-width: 325px;
+      }
+    }
+  }
+}

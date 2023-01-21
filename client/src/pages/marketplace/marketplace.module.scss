@@ -340,11 +340,16 @@
       }
     }
   }
-  .nfts{
-    &__head{
+  .nfts {
+    &__head {
       width: 834px;
-      img{
+      img {
         min-width: 834px;
+      }
+    }
+    &__body {
+      &__row {
+        width: 680px;
       }
     }
   }
