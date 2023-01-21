@@ -32,8 +32,25 @@ const ArtistSchema = new mongoose.Schema({
 const NFTModel = mongoose.model("NFT", NFTSchema);
 const ArtistModel = mongoose.model("Artist", ArtistSchema);
 
-mongoose.set("strictQuery", false);
+const nftValSchema = Joi.object({
+  name: Joi.string().required(),
+  price: Joi.number().required(),
+  highest: Joi.number().required(),
+  artistName: Joi.string().required(),
+  artistImage: Joi.string().required(),
+});
 
+const artistValSchema = Joi.object({
+  name: Joi.string().required(),
+  change: Joi.number().required(),
+  sold: Joi.number().required(),
+  volume: Joi.number().required(),
+  imgUrl: Joi.string().required(),
+  createTime: Joi.date().required(),
+});
+
+mongoose.set("strictQuery", false);
+app.use(express.json());
 mongoose
   .connect(
     `mongodb+srv://ferid:PSZde9zf0vkXCbWc@cluster0.tnvvtt5.mongodb.net/?retryWrites=true&w=majority`
