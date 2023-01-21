@@ -354,3 +354,74 @@
     }
   }
 }
+@media screen and (max-width: 835px) {
+  .headline {
+    padding: 40px 0px;
+    &__container {
+      width: 315px;
+      &__up {
+        div {
+          line-height: 39.2px;
+          width: auto;
+          font-size: 28px;
+        }
+        p {
+          line-height: 22.4px;
+          font-size: 16px;
+          white-space: normal;
+        }
+      }
+      &__down {
+        width: 317px;
+        &__search {
+          width: 315px;
+          &__text {
+            width: 230px;
+            input {
+              min-width: 230px;
+            }
+          }
+        }
+      }
+    }
+  }
+  .nfts {
+    &__head {
+      width: 375px;
+      img {
+        min-width: 375px;
+      }
+      &__container {
+        width: 315px;
+        &__body {
+          &__left {
+            padding: 0px 10px;
+            &__text {
+              line-height: 22.4px;
+              font-size: 16px;
+            }
+            &__count {
+              display: none;
+            }
+          }
+          &__right {
+            padding: 0px 10px;
+            &__text {
+              line-height: 22.4px;
+              font-size: 16px;
+            }
+            &__count {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+    &__body {
+      padding: 40px 0px;
+      &__row {
+        width: 315px;
+      }
+    }
+  }
+}
