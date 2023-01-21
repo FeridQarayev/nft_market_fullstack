@@ -17,10 +17,7 @@ function NFT(data: { nft: INFT }) {
   return (
     <div className="nft">
       <div className="nft__img">
-        <img
-          src={require(`../../images/nft/${nft.img}`)}
-          alt="Image Placeholder"
-        />
+        <img src={require(`../../images/nft/${nft.img}`)} alt={nft.name} />
       </div>
       <div className="nft__body">
         <div className="nft__body__artist">

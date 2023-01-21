@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import style from "./home.module.scss";
+import style from "./rankings.module.scss";
 import Artist from "../../components/artist";
 // interface IArtist {
 //   id: number;
@@ -9,7 +9,7 @@ import Artist from "../../components/artist";
 //   volume: number;
 //   img: string;
 // }
-function Home() {
+function Rankings() {
   const artists = [
     {
       id: 1,
@@ -259,4 +259,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default Rankings;

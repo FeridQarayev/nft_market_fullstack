@@ -1,5 +1,5 @@
 import React from "react";
-import Home from "../pages/home";
+import Rankings from "../pages/rankings";
 import MainRoot from "../pages/MainRoot";
 import Marketplace from "../pages/marketplace";
 
@@ -13,8 +13,12 @@ export const ROUTES = [
         element: <Marketplace />,
       },
       {
-        path: "home",
-        element: <Home />,
+        path: "marketplace",
+        element: <Marketplace />,
+      },
+      {
+        path: "rankings",
+        element: <Rankings />,
       },
     ],
   },

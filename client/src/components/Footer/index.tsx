@@ -1,5 +1,6 @@
 import React from "react";
 import "./footer.scss";
+import { Link } from "react-router-dom";
 
 function Footer() {
   return (
@@ -260,8 +261,16 @@ function Footer() {
               <p>Explore</p>
             </div>
             <div className="footer__up__middle__body">
-              <p>Marketplace</p>
-              <p>Rankings</p>
+              <p>
+                <Link className="link" to="marketplace">
+                  Marketplace
+                </Link>
+              </p>
+              <p>
+                <Link className="link" to="rankings">
+                  Rankings
+                </Link>
+              </p>
               <p>Connect a wallet</p>
             </div>
           </div>

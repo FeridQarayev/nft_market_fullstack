@@ -24,10 +24,10 @@ function Navbar() {
         </div>
       </div>
       <div className={style.navbar__right}>
-        <Link className={style.navbar__right__link} to="">
+        <Link className={style.navbar__right__link} to="marketplace">
           <div>Marketplace</div>
         </Link>
-        <Link className={style.navbar__right__link} to="">
+        <Link className={style.navbar__right__link} to="rankings">
           <div>Rankings</div>
         </Link>
         <Link className={style.navbar__right__link} to="">
