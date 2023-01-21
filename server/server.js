@@ -32,6 +32,15 @@ const ArtistSchema = new mongoose.Schema({
 const NFTModel = mongoose.model("NFT", NFTSchema);
 const ArtistModel = mongoose.model("Artist", ArtistSchema);
 
+mongoose.set("strictQuery", false);
+app.use(express.json());
+mongoose
+  .connect(
+    `mongodb+srv://ferid:PSZde9zf0vkXCbWc@cluster0.tnvvtt5.mongodb.net/?retryWrites=true&w=majority`
+  )
+  .then(() => console.log("Connected to database"))
+  .catch((err) => console.error(err));
+
 const nftValSchema = Joi.object({
   name: Joi.string().required(),
   price: Joi.number().required(),
@@ -49,14 +58,24 @@ const artistValSchema = Joi.object({
   createTime: Joi.date().required(),
 });
 
-mongoose.set("strictQuery", false);
-app.use(express.json());
-mongoose
-  .connect(
-    `mongodb+srv://ferid:PSZde9zf0vkXCbWc@cluster0.tnvvtt5.mongodb.net/?retryWrites=true&w=majority`
-  )
-  .then(() => console.log("Connected to database"))
-  .catch((err) => console.error(err));
+app.post(
+  "/api/nfts",
+  (req, res, next) => {
+    const { error } = nftValSchema.validate(req.body);
+
+    if (error == null) next();
+    else {
+      const { details } = error;
+      const message = details.map((i) => i.message).join(",");
+      res.status(422).json({ error: message });
+    }
+  },
+  async (req, res) => {
+    const newNFT = new NFTModel({ ...req.body });
+    await newNFT.save();
+    res.status(201).send({ message: "Nft succesfully added!", nft: newNFT });
+  }
+);
 
 app.listen(PORT, () => {
   console.log("Server running on " + PORT);
