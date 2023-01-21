@@ -10,6 +10,7 @@ const NFTSchema = new mongoose.Schema({
   name: String,
   price: Number,
   highest: Number,
+  imgUrl: String,
   artistName: String,
   artistImage: String,
 });
@@ -45,6 +46,7 @@ const nftValSchema = Joi.object({
   name: Joi.string().required(),
   price: Joi.number().required(),
   highest: Joi.number().required(),
+  imgUrl: Joi.string().required(),
   artistName: Joi.string().required(),
   artistImage: Joi.string().required(),
 });
@@ -58,6 +60,13 @@ const artistValSchema = Joi.object({
   createTime: Joi.date().required(),
 });
 
+// NFT Get Method
+app.get("/api/nfts", async (req, res) => {
+  let nfts = await NFTModel.find();
+  res.send(nfts);
+});
+
+// NFT Post Method
 app.post(
   "/api/nfts",
   (req, res, next) => {
