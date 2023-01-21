@@ -70,6 +70,16 @@ app.get("/api/nfts", async (req, res) => {
   res.send(nfts);
 });
 
+// Artist Get Method
+app.get("/api/artists", (req, res) => {
+  ArtistModel.find(null, "name change sold volume imgUrl createTime").exec(
+    (error, data) => {
+      if (error) return res.status(500).send({ error });
+      res.send(data);
+    }
+  );
+});
+
 // NFT Post Method
 app.post(
   "/api/nfts",
