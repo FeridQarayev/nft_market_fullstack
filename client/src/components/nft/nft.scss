@@ -1,0 +1,224 @@
+.nft {
+  align-items: center;
+  background-color: #2b2b2b;
+  border-radius: 20px;
+  cursor: pointer;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  height: 469px;
+  mix-blend-mode: normal;
+  pointer-events: auto;
+  position: relative;
+  transition: all 0.3s ease;
+  &__img {
+    align-items: flex-start;
+    align-self: stretch;
+    background-color: transparent;
+    border-radius: 20px 20px 0px 0px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    height: auto;
+    position: relative;
+    img {
+      align-self: stretch;
+      background-color: transparent;
+      height: 295px;
+      min-width: 330px;
+      mix-blend-mode: normal;
+      object-fit: cover;
+      position: relative;
+    }
+  }
+  &__body {
+    align-items: flex-start;
+    align-self: stretch;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    height: auto;
+    padding: 20px 30px 25px;
+    position: relative;
+    &__artist {
+      align-items: flex-start;
+      align-self: stretch;
+      background-color: transparent;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      height: auto;
+      position: relative;
+      &__name {
+        align-self: stretch;
+        background-color: transparent;
+        letter-spacing: 0px;
+        line-height: 30.8px;
+        margin-top: -1px;
+        mix-blend-mode: normal;
+        position: relative;
+        text-align: left;
+        white-space: nowrap;
+
+        color: #ffffff;
+        font-family: "Work Sans", Helvetica;
+        font-size: 22px;
+        font-style: normal;
+        font-weight: 600;
+      }
+      &__avatar {
+        align-items: flex-start;
+        align-self: stretch;
+        background-color: transparent;
+        display: flex;
+        gap: 12px;
+        height: auto;
+        position: relative;
+        &__img {
+          align-items: flex-start;
+          background-color: transparent;
+          display: flex;
+          gap: 10px;
+          height: auto;
+          mix-blend-mode: normal;
+          position: relative;
+          width: fit-content;
+          div {
+            background-color: transparent;
+            height: 24px;
+            min-width: 24px;
+            mix-blend-mode: normal;
+            position: relative;
+            img {
+              background-color: transparent;
+              height: 24px;
+              left: 0px;
+              mix-blend-mode: normal;
+              object-fit: cover;
+              position: absolute;
+              top: 0px;
+              width: 24px;
+            }
+          }
+        }
+        &__name {
+          background-color: transparent;
+          flex: 1;
+          letter-spacing: 0px;
+          line-height: 22.4px;
+          margin-top: -1px;
+          mix-blend-mode: normal;
+          position: relative;
+          text-align: left;
+          white-space: nowrap;
+
+          color: #ffffff;
+          font-family: "Space Mono", Helvetica;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 400;
+        }
+      }
+    }
+    &__info {
+      align-items: flex-start;
+      align-self: stretch;
+      background-color: transparent;
+      display: flex;
+      height: auto;
+      position: relative;
+      &__price {
+        align-items: flex-start;
+        background-color: transparent;
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        gap: 8px;
+        height: auto;
+        padding: 0px 21px 0px 0px;
+        position: relative;
+        &__text {
+          align-self: stretch;
+          background-color: transparent;
+          letter-spacing: 0px;
+          line-height: 13.2px;
+          margin-top: -1px;
+          mix-blend-mode: normal;
+          position: relative;
+          text-align: left;
+          white-space: nowrap;
+
+          color: #858584;
+          font-family: "Space Mono", Helvetica;
+          font-size: 12px;
+          font-style: normal;
+          font-weight: 400;
+        }
+        &__price {
+          align-self: stretch;
+          background-color: transparent;
+          letter-spacing: 0px;
+          line-height: 22.4px;
+          mix-blend-mode: normal;
+          position: relative;
+          text-align: left;
+          white-space: nowrap;
+
+          color: #ffffff;
+          font-family: "Space Mono", Helvetica;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 400;
+        }
+      }
+      &__highest {
+        align-items: flex-end;
+        background-color: transparent;
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        gap: 8px;
+        height: auto;
+        justify-content: center;
+        position: relative;
+        &__text {
+          align-self: stretch;
+          background-color: transparent;
+          letter-spacing: 0px;
+          line-height: 13.2px;
+          margin-top: -1px;
+          mix-blend-mode: normal;
+          position: relative;
+          text-align: right;
+          white-space: nowrap;
+
+          color: #858584;
+          font-family: "Space Mono", Helvetica;
+          font-size: 12px;
+          font-style: normal;
+          font-weight: 400;
+        }
+        &__price {
+          align-self: stretch;
+          background-color: transparent;
+          letter-spacing: 0px;
+          line-height: 22.4px;
+          mix-blend-mode: normal;
+          position: relative;
+          text-align: right;
+          white-space: nowrap;
+
+          color: #ffffff;
+          font-family: "Space Mono", Helvetica;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 400;
+        }
+      }
+    }
+  }
+  &:hover {
+    transform: scale(0.95);
+  }
+}

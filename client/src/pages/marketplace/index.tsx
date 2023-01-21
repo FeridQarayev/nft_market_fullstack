@@ -2,6 +2,7 @@ import React, { Fragment } from "react";
 import search_logo from "../../images/marketplace/magnifyingglass@2x.svg";
 import line from "../../images/marketplace/line-2@1x.svg";
 import styled from "./marketplace.module.scss";
+import NFT from "../../components/nft";
 
 function Marketplace() {
   return (
@@ -35,22 +36,37 @@ function Marketplace() {
                 <div className={styled.nfts__head__container__body__left__text}>
                   Nfts
                 </div>
-                <div className={styled.nfts__head__container__body__left__count}>
+                <div
+                  className={styled.nfts__head__container__body__left__count}
+                >
                   <div>302</div>
                 </div>
               </div>
               <div className={styled.nfts__head__container__body__right}>
-                <div className={styled.nfts__head__container__body__right__text}>
+                <div
+                  className={styled.nfts__head__container__body__right__text}
+                >
                   Collections
                 </div>
-                <div className={styled.nfts__head__container__body__right__count}>
+                <div
+                  className={styled.nfts__head__container__body__right__count}
+                >
                   <div>67</div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div className="nfts__body"></div>
+        <div className={styled.nfts__body}>
+          <div className={styled.nfts__body__row}>
+            <NFT />
+            <NFT />
+            <NFT />
+            <NFT />
+            <NFT />
+            <NFT />
+          </div>
+        </div>
       </div>
       {/* Nfts End */}
     </Fragment>
