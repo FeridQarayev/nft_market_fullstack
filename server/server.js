@@ -59,6 +59,10 @@ const artistValSchema = Joi.object({
   imgUrl: Joi.string().required(),
   createTime: Joi.date().required(),
 });
+const artistNFTSValSchema = Joi.object({
+  artistId: Joi.string().required(),
+  nftId: Joi.string().required(),
+});
 
 // NFT Get Method
 app.get("/api/nfts", async (req, res) => {
@@ -107,6 +111,37 @@ app.post(
       .send({ message: "Artist succesfully added!", artist: newArtist });
   }
 );
+
+// Artist NFTS Post Method
+app.post(
+  "/api/artists/nfts",
+  (req, res, next) => {
+    const { error } = artistNFTSValSchema.validate(req.body);
+
+    if (error == null) next();
+    else {
+      const { details } = error;
+      const message = details.map((i) => i.message).join(",");
+      res.status(422).json({ error: message });
+    }
+  },
+  (req, res) => {
+    ArtistModel.findByIdAndUpdate(
+      req.body.artistId,
+      {
+        $push: {
+          nfts: req.body.nftId,
+        },
+      },
+      (error, data) => {
+        if (error) return res.status(500).send({ error });
+
+        res.send(data);
+      }
+    );
+  }
+);
+
 app.listen(PORT, () => {
   console.log("Server running on " + PORT);
 });
