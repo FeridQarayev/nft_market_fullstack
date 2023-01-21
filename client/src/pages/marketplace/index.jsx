@@ -1,10 +1,12 @@
 import React, { Fragment } from "react";
 import search_logo from "../../images/marketplace/magnifyingglass@2x.svg";
+import line from "../../images/marketplace/line-2@1x.svg";
 import styled from "./marketplace.module.scss";
 
 function Marketplace() {
   return (
     <Fragment>
+      {/* Headline Start */}
       <div className={styled.headline}>
         <div className={styled.headline__container}>
           <div className={styled.headline__container__up}>
@@ -21,6 +23,36 @@ function Marketplace() {
           </div>
         </div>
       </div>
+      {/* Headline End */}
+
+      {/* Nfts Start */}
+      <div className={styled.nfts}>
+        <div className={styled.nfts__head}>
+          <img src={line} alt="Line" />
+          <div className={styled.nfts__head__container}>
+            <div className={styled.nfts__head__container__body}>
+              <div className={styled.nfts__head__container__body__left}>
+                <div className={styled.nfts__head__container__body__left__text}>
+                  Nfts
+                </div>
+                <div className={styled.nfts__head__container__body__left__count}>
+                  <div>302</div>
+                </div>
+              </div>
+              <div className={styled.nfts__head__container__body__right}>
+                <div className={styled.nfts__head__container__body__right__text}>
+                  Collections
+                </div>
+                <div className={styled.nfts__head__container__body__right__count}>
+                  <div>67</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="nfts__body"></div>
+      </div>
+      {/* Nfts End */}
     </Fragment>
   );
 }
