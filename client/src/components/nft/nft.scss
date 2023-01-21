@@ -233,3 +233,32 @@
     }
   }
 }
+@media screen and (max-width: 835px) {
+  .nft {
+    min-width: 315px;
+    height: 402px;
+    &__img {
+      img {
+        height: 238px;
+        min-width: 315px;
+      }
+    }
+    &__body {
+      padding: 20px 20px 25px;
+      &__info {
+        &__price {
+          height: 34px;
+          &__price {
+            font-size: 12px;
+          }
+        }
+        &__highest {
+          height: 34px;
+          &__price {
+            font-size: 12px;
+          }
+        }
+      }
+    }
+  }
+}
