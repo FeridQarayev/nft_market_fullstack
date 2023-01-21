@@ -86,6 +86,27 @@ app.post(
   }
 );
 
+// Artist Post Method
+app.post(
+  "/api/artists",
+  (req, res, next) => {
+    const { error } = artistValSchema.validate(req.body);
+
+    if (error == null) next();
+    else {
+      const { details } = error;
+      const message = details.map((i) => i.message).join(",");
+      res.status(422).json({ error: message });
+    }
+  },
+  async (req, res) => {
+    const newArtist = new ArtistModel({ ...req.body });
+    await newArtist.save();
+    res
+      .status(201)
+      .send({ message: "Artist succesfully added!", artist: newArtist });
+  }
+);
 app.listen(PORT, () => {
   console.log("Server running on " + PORT);
 });
