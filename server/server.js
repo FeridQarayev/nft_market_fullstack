@@ -127,7 +127,6 @@ app.post(
 app.post(
   "/api/artists",
   (req, res, next) => {
-    console.log(req.body);
     const { error } = artistValSchema.validate(req.body);
 
     if (error == null) next();

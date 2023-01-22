@@ -30,8 +30,8 @@ function Navbar() {
         <Link className={style.navbar__right__link} to="rankings">
           <div>Rankings</div>
         </Link>
-        <Link className={style.navbar__right__link} to="">
-          <div>Connect a wallet</div>
+        <Link className={style.navbar__right__link} to="createArtist">
+          <div>Create Artist</div>
         </Link>
         <Link className={style.navbar__right__btn} to="">
           <img src={logo_user} alt="User" />

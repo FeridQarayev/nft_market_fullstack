@@ -11,15 +11,19 @@ export const ROUTES = [
     children: [
       {
         path: "",
-        element: <CreateArtist />,
+        element: <Rankings />,
+      },
+      {
+        path: "rankings",
+        element: <Rankings />,
       },
       {
         path: "marketplace",
         element: <Marketplace />,
       },
       {
-        path: "rankings",
-        element: <Rankings />,
+        path: "createArtist",
+        element: <CreateArtist />,
       },
     ],
   },
