@@ -1,6 +1,16 @@
 import React from "react";
 import styled from "./createArtist.module.scss";
 import img from "../../images/form/image-placeholder-85@1x.png";
+import { Formik } from "formik";
+import * as Yup from "yup";
+
+const validationSchema = Yup.object({
+  name: Yup.string().required(),
+  change: Yup.number().required(),
+  sold: Yup.number().required(),
+  volume: Yup.number().required(),
+  imgUrl: Yup.string().required(),
+});
 
 function CreateArtist() {
   const imgs = [
@@ -82,35 +92,91 @@ function CreateArtist() {
             </div>
           </div>
         </div>
-        <form action="#" className={styled.form__body__main}>
-          <div className={styled.form__body__main__up}>
-            <div className={styled.form__body__main__up__name}>
-              <input type="text" placeholder="Name" />
-            </div>
-            <div className={styled.form__body__main__up__change}>
-              <input type="text" placeholder="Change" />
-            </div>
-            <div className={styled.form__body__main__up__sold}>
-              <input type="text" placeholder="Sold" />
-            </div>
-            <div className={styled.form__body__main__up__volume}>
-              <input type="text" placeholder="Volume" />
-            </div>
-            <div className={styled.form__body__main__up__select}>
-              <select name="img" id="img">
-                <option value="" selected>
-                  Select image
-                </option>
-                {imgs.map((img, index) => (
-                  <option value={img.img}>{index + 1}</option>
-                ))}
-              </select>
-            </div>
-          </div>
-          <button type="submit" className={styled.form__body__main__down}>
-            <div>Create Artist</div>
-          </button>
-        </form>
+        <Formik
+          initialValues={{
+            name: "",
+            change: "",
+            sold: "",
+            volume: "",
+            imgUrl: "",
+          }}
+          validationSchema={validationSchema}
+          onSubmit={(values) => {
+            console.log(values);
+          }}
+        >
+          {({ handleSubmit, handleChange, values, errors }) => (
+            <form
+              action="#"
+              className={styled.form__body__main}
+              onSubmit={handleSubmit}
+            >
+              <div className={styled.form__body__main__up}>
+                <div className={styled.form__body__main__up__name}>
+                  <input
+                    type="text"
+                    name="name"
+                    placeholder="Name"
+                    onChange={handleChange}
+                    value={values.name}
+                  />
+                </div>
+                <p style={{ color: "red" }}>{errors.name && errors.name}</p>
+                <div className={styled.form__body__main__up__change}>
+                  <input
+                    type="number"
+                    name="change"
+                    placeholder="Change"
+                    onChange={handleChange}
+                    value={values.change}
+                  />
+                </div>
+                <p style={{ color: "red" }}>{errors.change && errors.change}</p>
+                <div className={styled.form__body__main__up__sold}>
+                  <input
+                    type="number"
+                    name="sold"
+                    placeholder="Sold"
+                    onChange={handleChange}
+                    value={values.sold}
+                  />
+                </div>
+                <p style={{ color: "red" }}>{errors.sold && errors.sold}</p>
+                <div className={styled.form__body__main__up__volume}>
+                  <input
+                    type="number"
+                    name="volume"
+                    placeholder="Volume"
+                    onChange={handleChange}
+                    value={values.volume}
+                  />
+                </div>
+                <p style={{ color: "red" }}>{errors.volume && errors.volume}</p>
+                <div className={styled.form__body__main__up__select}>
+                  <select
+                    name="imgUrl"
+                    id="img"
+                    onChange={handleChange}
+                    value={values.imgUrl}
+                  >
+                    <option value="" defaultValue={""}>
+                      Select image
+                    </option>
+                    {imgs.map((img, index) => (
+                      <option key={index} value={img.img}>
+                        {index + 1}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+                <p style={{ color: "red" }}>{errors.imgUrl && errors.imgUrl}</p>
+              </div>
+              <button type="submit" className={styled.form__body__main__down}>
+                <div>Create Artist</div>
+              </button>
+            </form>
+          )}
+        </Formik>
       </div>
     </div>
   );
