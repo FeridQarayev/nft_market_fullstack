@@ -3,8 +3,8 @@ import styled from "./createArtist.module.scss";
 import img from "../../images/form/image-placeholder-85@1x.png";
 import { Formik } from "formik";
 import * as Yup from "yup";
-import axios from "axios";
 import { Toaster, toast } from "react-hot-toast";
+import { createArtist } from "../../service/createArtist";
 
 const validationSchema = Yup.object({
   name: Yup.string().required(),
@@ -69,10 +69,10 @@ const imgs = [
     img: "avatar-placeholder-120@2x.png",
   },
   {
-    img: "image-placeholder-72@2x.png",
+    img: "avatar-placeholder-121@2x.png",
   },
   {
-    img: "image-placeholder-73@2x.png",
+    img: "avatar-placeholder-72@2x.png",
   },
 ];
 
@@ -104,11 +104,7 @@ function CreateArtist() {
           }}
           validationSchema={validationSchema}
           onSubmit={(values, { resetForm }) => {
-            axios
-              .post("http://localhost:8080/api/artists", {
-                ...values,
-                createTime: new Date(),
-              })
+            createArtist({ ...values, createTime: new Date() })
               .then((res) => {
                 if (res.status === 201) toast.success(res.data.message);
                 else toast.error(res.data.message);

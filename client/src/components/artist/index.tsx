@@ -3,8 +3,8 @@ import React, { useState } from "react";
 import { Toaster, toast } from "react-hot-toast";
 import { Formik } from "formik";
 import * as Yup from "yup";
-import axios from "axios";
 import "./artist.scss";
+import { createNFT } from "../../service/createNFT";
 interface IArtist {
   _id: number;
   name: string;
@@ -116,13 +116,11 @@ function Artist(data: { artist: IArtist; index: number }) {
             }}
             validationSchema={validationSchema}
             onSubmit={(values, { resetForm }) => {
-              console.log({ ...values, imgUrl: artist.imgUrl });
-              axios
-                .post("http://localhost:8080/api/nfts", {
-                  ...values,
-                  imgUrl: randomInteger(0, nfts.length - 1),
-                  artistId: artist._id,
-                })
+              createNFT({
+                ...values,
+                imgUrl: randomInteger(0, nfts.length - 1),
+                artistId: artist._id,
+              })
                 .then((res) => {
                   if (res.status === 201) toast.success(res.data.message);
                   else toast.error(res.data.message);
