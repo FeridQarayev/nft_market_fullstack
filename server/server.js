@@ -11,8 +11,10 @@ const NFTSchema = new mongoose.Schema({
   price: Number,
   highest: Number,
   imgUrl: String,
-  artistName: String,
-  artistImage: String,
+  artist: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Artist",
+  },
 });
 
 const ArtistSchema = new mongoose.Schema({
@@ -47,8 +49,7 @@ const nftValSchema = Joi.object({
   price: Joi.number().required(),
   highest: Joi.number().required(),
   imgUrl: Joi.string().required(),
-  artistName: Joi.string().required(),
-  artistImage: Joi.string().required(),
+  artistId: Joi.string().required(),
 });
 
 const artistValSchema = Joi.object({
@@ -65,9 +66,18 @@ const artistNFTSValSchema = Joi.object({
 });
 
 // NFT Get Method
-app.get("/api/nfts", async (req, res) => {
-  let nfts = await NFTModel.find();
-  res.send(nfts);
+// app.get("/api/nfts", async (req, res) => {
+//   let nfts = await NFTModel.find();
+//   res.send(nfts);
+// });
+app.get("/api/nfts", (req, res) => {
+  NFTModel.find(null, "name price highest imgUrl")
+    .populate("artist")
+    .exec((error, data) => {
+      if (error) return res.status(500).send({ error });
+
+      res.send(data);
+    });
 });
 
 // Artist Get Method
@@ -94,8 +104,25 @@ app.post(
     }
   },
   async (req, res) => {
-    const newNFT = new NFTModel({ ...req.body });
+    const newNFT = new NFTModel({
+      ...req.body,
+      artistId: undefined,
+    });
+    console.log(newNFT._id);
     await newNFT.save();
+    NFTModel.findByIdAndUpdate(
+      newNFT._id,
+      {
+        $set: {
+          artist: req.body.artistId,
+        },
+      },
+      (error, data) => {
+        if (error) return res.status(500).send({ error });
+
+        // res.send(data);
+      }
+    );
     res.status(201).send({ message: "Nft succesfully added!", nft: newNFT });
   }
 );
@@ -139,7 +166,7 @@ app.post(
     ArtistModel.findByIdAndUpdate(
       req.body.artistId,
       {
-        $push: {
+        $set: {
           nfts: req.body.nftId,
         },
       },
