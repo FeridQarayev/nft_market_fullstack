@@ -114,7 +114,7 @@ function CreateArtist() {
                 else toast.error(res.data.message);
               })
               .catch((res) => toast.error(res.data.message));
-            // resetForm();
+            resetForm();
           }}
         >
           {({ handleSubmit, handleChange, values, errors }) => (

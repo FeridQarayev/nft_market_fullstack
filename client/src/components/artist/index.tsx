@@ -1,5 +1,8 @@
 import { Modal, Typography, Box } from "@mui/material";
 import React, { useState } from "react";
+import { Formik } from "formik";
+import * as Yup from "yup";
+import axios from "axios";
 import "./artist.scss";
 interface IArtist {
   _id: number;
@@ -22,6 +25,12 @@ const style = {
   boxShadow: 24,
   p: 4,
 };
+
+const validationSchema = Yup.object({
+  name: Yup.string().required(),
+  price: Yup.number().required(),
+  highest: Yup.number().required(),
+});
 function Artist(data: { artist: IArtist; index: number }) {
   const { artist, index } = data;
   const [open, setOpen] = useState(false);
@@ -81,23 +90,69 @@ function Artist(data: { artist: IArtist; index: number }) {
           <Typography id="modal-modal-title" variant="h6" component="h2">
             Create NFT
           </Typography>
-          <form action="#" className="nftform">
-            <div className="nftform__row">
-              <input type="text" name="name" placeholder="Name" />
-            </div>
-            <div className="nftform__row">
-              <input type="text" name="price" placeholder="Price" />
-            </div>
-            <div className="nftform__row">
-              <input type="text" name="highest" placeholder="Highest" />
-            </div>
-            <div className="nftform__row">
-              <input type="text" name="imgUrl" placeholder="Image" />
-            </div>
-            <div className="nftform__btn">
-              <button type="submit">Create</button>
-            </div>
-          </form>
+          <Formik
+            initialValues={{
+              name: "",
+              price: "",
+              highest: "",
+            }}
+            validationSchema={validationSchema}
+            onSubmit={(values, { resetForm }) => {
+              console.log({ ...values, imgUrl: artist.imgUrl });
+              axios
+                .post("http://localhost:8080/api/artists", {
+                  ...values,
+                  createTime: new Date(),
+                })
+                .then((res) => {
+                  // if (res.status === 201) toast.success(res.data.message);
+                  // else toast.error(res.data.message);
+                  console.log(res.data);
+                })
+                // .catch((res) => toast.error(res.data.message));
+              // resetForm();
+            }}
+          >
+            {({ handleSubmit, handleChange, values, errors }) => (
+              <form action="#" className="nftform" onSubmit={handleSubmit}>
+                <div className="nftform__row">
+                  <input
+                    type="text"
+                    name="name"
+                    placeholder="Name"
+                    onChange={handleChange}
+                    value={values.name}
+                  />
+                </div>
+                <p style={{ color: "red" }}>{errors.name && errors.name}</p>
+                <div className="nftform__row">
+                  <input
+                    type="number"
+                    name="price"
+                    placeholder="Price"
+                    onChange={handleChange}
+                    value={values.price}
+                  />
+                </div>
+                <p style={{ color: "red" }}>{errors.price && errors.price}</p>
+                <div className="nftform__row">
+                  <input
+                    type="number"
+                    name="highest"
+                    placeholder="Highest"
+                    onChange={handleChange}
+                    value={values.highest}
+                  />
+                </div>
+                <p style={{ color: "red" }}>
+                  {errors.highest && errors.highest}
+                </p>
+                <div className="nftform__btn">
+                  <button type="submit">Create</button>
+                </div>
+              </form>
+            )}
+          </Formik>
         </Box>
       </Modal>
     </div>
