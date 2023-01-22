@@ -13,70 +13,70 @@ const validationSchema = Yup.object({
   volume: Yup.number().required(),
   imgUrl: Yup.string().required(),
 });
+const imgs = [
+  {
+    img: "avatar-placeholder-5@2x.png",
+  },
+  {
+    img: "avatar-placeholder-6@2x.png",
+  },
+  {
+    img: "avatar-placeholder-7@2x.png",
+  },
+  {
+    img: "avatar-placeholder-8@2x.png",
+  },
+  {
+    img: "avatar-placeholder-9@2x.png",
+  },
+  {
+    img: "avatar-placeholder-16@2x.png",
+  },
+  {
+    img: "avatar-placeholder-17@2x.png",
+  },
+  {
+    img: "avatar-placeholder-126@2x.png",
+  },
+  {
+    img: "avatar-placeholder-127@2x.png",
+  },
+  {
+    img: "avatar-placeholder-128@2x.png",
+  },
+  {
+    img: "avatar-placeholder-129@2x.png",
+  },
+  {
+    img: "avatar-placeholder-130@2x.png",
+  },
+  {
+    img: "avatar-placeholder-131@2x.png",
+  },
+  {
+    img: "avatar-placeholder-132@2x.png",
+  },
+  {
+    img: "avatar-placeholder-133@2x.png",
+  },
+  {
+    img: "avatar-placeholder-134@2x.png",
+  },
+  {
+    img: "avatar-placeholder-135@2x.png",
+  },
+  {
+    img: "avatar-placeholder-120@2x.png",
+  },
+  {
+    img: "image-placeholder-72@2x.png",
+  },
+  {
+    img: "image-placeholder-73@2x.png",
+  },
+];
 
 function CreateArtist() {
-  const imgs = [
-    {
-      img: "avatar-placeholder-5@2x.png",
-    },
-    {
-      img: "avatar-placeholder-6@2x.png",
-    },
-    {
-      img: "avatar-placeholder-7@2x.png",
-    },
-    {
-      img: "avatar-placeholder-8@2x.png",
-    },
-    {
-      img: "avatar-placeholder-9@2x.png",
-    },
-    {
-      img: "avatar-placeholder-16@2x.png",
-    },
-    {
-      img: "avatar-placeholder-17@2x.png",
-    },
-    {
-      img: "avatar-placeholder-126@2x.png",
-    },
-    {
-      img: "avatar-placeholder-127@2x.png",
-    },
-    {
-      img: "avatar-placeholder-128@2x.png",
-    },
-    {
-      img: "avatar-placeholder-129@2x.png",
-    },
-    {
-      img: "avatar-placeholder-130@2x.png",
-    },
-    {
-      img: "avatar-placeholder-131@2x.png",
-    },
-    {
-      img: "avatar-placeholder-132@2x.png",
-    },
-    {
-      img: "avatar-placeholder-133@2x.png",
-    },
-    {
-      img: "avatar-placeholder-134@2x.png",
-    },
-    {
-      img: "avatar-placeholder-135@2x.png",
-    },
-    {
-      img: "avatar-placeholder-5@2x.png",
-    },
-    {
-      img: "avatar-placeholder-128@2x.png",
-    },
-    {
-      img: "avatar-placeholder-7@2x.png",
-    },
-  ];
   return (
     <div className={styled.form}>
       <img src={img} alt="logo" />
