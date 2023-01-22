@@ -3,7 +3,7 @@ import search_logo from "../../images/marketplace/magnifyingglass@2x.svg";
 import line from "../../images/marketplace/line-2@1x.svg";
 import styled from "./marketplace.module.scss";
 import NFT from "../../components/nft";
-import axios from "axios";
+import { getNfts } from "../../service/getNfts";
 
 interface INFT {
   _id: string;
@@ -24,7 +24,7 @@ interface INFT {
 function Marketplace() {
   const [nfts, setNfts] = useState<INFT[]>([]);
   useEffect(() => {
-    axios.get("http://localhost:8080/api/nfts").then((res) => {
+    getNfts().then((res) => {
       setNfts(res.data);
     });
   }, []);
