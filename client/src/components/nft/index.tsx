@@ -1,14 +1,18 @@
 import "./nft.scss";
 interface INFT {
-  id: number;
+  _id: string;
   name: string;
   price: number;
   highest: number;
-  img: string;
+  imgUrl: string;
   artist: {
-    artistId: number;
+    _id: string;
     name: string;
-    img: string;
+    change: number;
+    sold: number;
+    volume: number;
+    imgUrl: string;
+    createTime: Date;
   };
 }
 
@@ -17,7 +21,7 @@ function NFT(data: { nft: INFT }) {
   return (
     <div className="nft">
       <div className="nft__img">
-        <img src={require(`../../images/nft/${nft.img}`)} alt={nft.name} />
+        <img src={require(`../../images/nft/${nft.imgUrl}`)} alt={nft.name} />
       </div>
       <div className="nft__body">
         <div className="nft__body__artist">
@@ -26,12 +30,14 @@ function NFT(data: { nft: INFT }) {
             <div className="nft__body__artist__avatar__img">
               <div>
                 <img
-                  src={require(`../../images/artist/${nft.artist.img}`)}
+                  src={require(`../../images/artist/${nft.artist.imgUrl}`)}
                   alt="Avatar Placeholder"
                 />
               </div>
             </div>
-            <div className="nft__body__artist__avatar__name">Shroomie</div>
+            <div className="nft__body__artist__avatar__name">
+              {nft.artist.name}
+            </div>
           </div>
         </div>
         <div className="nft__body__info">
