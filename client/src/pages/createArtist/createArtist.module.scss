@@ -1,0 +1,230 @@
+.form {
+  align-items: center;
+  align-self: stretch;
+  background-color: #2b2b2b;
+  display: flex;
+  gap: 60px;
+  height: auto;
+  mix-blend-mode: normal;
+  position: relative;
+  img {
+    align-self: stretch;
+    background-color: transparent;
+    flex: 1;
+    height: 691px;
+    min-width: 610px;
+    mix-blend-mode: normal;
+    object-fit: cover;
+    position: relative;
+  }
+  &__body {
+    align-items: flex-start;
+    background-color: transparent;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 40px;
+    height: auto;
+    padding: 100px 0px;
+    position: relative;
+    &__title {
+      align-items: flex-start;
+      background-color: transparent;
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      height: auto;
+      position: relative;
+      width: 460px;
+      &__container {
+        align-items: flex-start;
+        align-self: stretch;
+        background-color: transparent;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        height: auto;
+        position: relative;
+        &__up {
+          align-items: flex-start;
+          align-self: stretch;
+          background-color: transparent;
+          display: flex;
+          gap: 10px;
+          height: auto;
+          position: relative;
+          div {
+            background-color: transparent;
+            flex: 1;
+            letter-spacing: 0px;
+            line-height: 56.1px;
+            margin-top: -1px;
+            mix-blend-mode: normal;
+            position: relative;
+            text-align: left;
+            white-space: nowrap;
+
+            color: #ffffff;
+            font-family: "Work Sans", Helvetica;
+            font-size: 51px;
+            font-style: normal;
+            font-weight: 600;
+          }
+        }
+        &__down {
+          align-items: flex-start;
+          align-self: stretch;
+          background-color: transparent;
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          height: auto;
+          position: relative;
+          p {
+            align-self: stretch;
+            background-color: transparent;
+            letter-spacing: 0px;
+            line-height: 35.2px;
+            margin-top: -1px;
+            mix-blend-mode: normal;
+            position: relative;
+            text-align: left;
+
+            color: #ffffff;
+            font-family: "Work Sans", Helvetica;
+            font-size: 22px;
+            font-style: normal;
+            font-weight: 400;
+          }
+        }
+      }
+    }
+    &__main {
+      align-items: flex-start;
+      background-color: transparent;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      height: auto;
+      position: relative;
+      width: 330px;
+      &__up {
+        align-items: flex-start;
+        align-self: stretch;
+        background-color: transparent;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        height: auto;
+        position: relative;
+        div {
+          align-items: center;
+          align-self: stretch;
+          background-color: #ffffff;
+          border: 1px solid;
+          border-color: #858584;
+          border-radius: 20px;
+          display: flex;
+          gap: 12px;
+          height: 46px;
+          mix-blend-mode: normal;
+          padding: 16px 20px;
+          position: relative;
+          input {
+            background-color: transparent;
+            border: 0;
+            flex: 1;
+            height: 22px;
+            letter-spacing: 0px;
+            line-height: 22.4px;
+            margin-bottom: -3px;
+            margin-top: -5px;
+            min-width: 258px;
+            mix-blend-mode: normal;
+            padding: 0;
+            position: relative;
+            resize: none;
+            text-align: left;
+            white-space: nowrap;
+
+            color: #2b2b2b;
+            font-family: "Work Sans", Helvetica;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+          }
+        }
+        &__select {
+          align-items: center;
+          align-self: stretch;
+          background-color: #ffffff;
+          border: 1px solid;
+          border-color: #858584;
+          border-radius: 20px;
+          display: flex;
+          gap: 12px;
+          height: 46px;
+          mix-blend-mode: normal;
+          padding: 16px 20px;
+          position: relative;
+          select {
+            background-color: transparent;
+            border: 0;
+            flex: 1;
+            height: 22px;
+            letter-spacing: 0px;
+            line-height: 22.4px;
+            margin-bottom: -3px;
+            margin-top: -5px;
+            min-width: 258px;
+            mix-blend-mode: normal;
+            padding: 0;
+            position: relative;
+            resize: none;
+            text-align: left;
+            white-space: nowrap;
+
+            color: #2b2b2b;
+            font-family: "Work Sans", Helvetica;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+          }
+        }
+      }
+      &__down {
+        align-items: center;
+        align-self: stretch;
+        background-color: #a259ff;
+        border-radius: 20px;
+        cursor: pointer;
+        display: flex;
+        gap: 12px;
+        height: 46px;
+        justify-content: center;
+        mix-blend-mode: normal;
+        padding: 0px 50px;
+        pointer-events: auto;
+        position: relative;
+        transition: all 0.3s ease;
+        border-color: transparent;
+        div {
+          background-color: transparent;
+          letter-spacing: 0px;
+          line-height: 22.4px;
+          mix-blend-mode: normal;
+          position: relative;
+          text-align: center;
+          white-space: nowrap;
+          width: fit-content;
+
+          color: #ffffff;
+          font-family: "Work Sans", Helvetica;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+}

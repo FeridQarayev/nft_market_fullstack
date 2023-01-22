@@ -2,6 +2,7 @@ import React from "react";
 import Rankings from "../pages/rankings";
 import MainRoot from "../pages/MainRoot";
 import Marketplace from "../pages/marketplace";
+import CreateArtist from "../pages/createArtist";
 
 export const ROUTES = [
   {
@@ -10,7 +11,7 @@ export const ROUTES = [
     children: [
       {
         path: "",
-        element: <Marketplace />,
+        element: <CreateArtist />,
       },
       {
         path: "marketplace",
