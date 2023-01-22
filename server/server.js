@@ -66,10 +66,6 @@ const artistNFTSValSchema = Joi.object({
 });
 
 // NFT Get Method
-// app.get("/api/nfts", async (req, res) => {
-//   let nfts = await NFTModel.find();
-//   res.send(nfts);
-// });
 app.get("/api/nfts", (req, res) => {
   NFTModel.find(null, "name price highest imgUrl")
     .populate("artist")
@@ -119,8 +115,6 @@ app.post(
       },
       (error, data) => {
         if (error) return res.status(500).send({ error });
-
-        // res.send(data);
       }
     );
     res.status(201).send({ message: "Nft succesfully added!", nft: newNFT });
