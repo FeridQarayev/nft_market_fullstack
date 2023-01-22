@@ -1,21 +1,21 @@
-import React from "react";
 import "./artist.scss";
 interface IArtist {
-  id: number;
+  _id: number;
   name: string;
   change: number;
   sold: number;
   volume: number;
-  img: string;
+  imgUrl: string;
+  createTime: Date;
 }
-function Artist(data: { artist: IArtist }) {
-  const { artist } = data;
+function Artist(data: { artist: IArtist; index: number }) {
+  const { artist, index } = data;
   return (
     <div className="artist">
       <div className="artist__body">
         <div className="artist__body__left">
           <div className="artist__body__left__number">
-            <div style={artist.id > 9 ? { left: "5px" } : {}}>{artist.id}</div>
+            <div style={index > 9 ? { left: "5px" } : {}}>{index}</div>
           </div>
           <div className="artist__body__left__card">
             <div className="artist__body__left__card__img">
@@ -25,7 +25,7 @@ function Artist(data: { artist: IArtist }) {
                     className="
                       artist__body__left__card__img__avatar
                     "
-                    src={require(`../../images/artist/${artist.img}`)}
+                    src={require(`../../images/artist/${artist.imgUrl}`)}
                     alt="Avatar Placeholder"
                   />
                 </div>
