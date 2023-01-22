@@ -1,5 +1,6 @@
 import { Modal, Typography, Box } from "@mui/material";
 import React, { useState } from "react";
+import { Toaster, toast } from "react-hot-toast";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
@@ -31,6 +32,23 @@ const validationSchema = Yup.object({
   price: Yup.number().required(),
   highest: Yup.number().required(),
 });
+const nfts = [
+  "image-placeholder@2x.png",
+  "image-placeholder-65@2x.png",
+  "image-placeholder-66@2x.png",
+  "image-placeholder-1@2x.png",
+  "image-placeholder-67@2x.png",
+  "image-placeholder-68@2x.png",
+  "image-placeholder-69@2x.png",
+  "image-placeholder-70@2x.png",
+  "image-placeholder-2@2x.png",
+  "image-placeholder-71@2x.png",
+  "image-placeholder-72@2x.png",
+  "image-placeholder-73@2x.png",
+];
+function randomInteger(min: number, max: number) {
+  return nfts[Math.floor(Math.random() * (max - min + 1)) + min];
+}
 function Artist(data: { artist: IArtist; index: number }) {
   const { artist, index } = data;
   const [open, setOpen] = useState(false);
@@ -100,17 +118,18 @@ function Artist(data: { artist: IArtist; index: number }) {
             onSubmit={(values, { resetForm }) => {
               console.log({ ...values, imgUrl: artist.imgUrl });
               axios
-                .post("http://localhost:8080/api/artists", {
+                .post("http://localhost:8080/api/nfts", {
                   ...values,
-                  createTime: new Date(),
+                  imgUrl: randomInteger(0, nfts.length - 1),
+                  artistId: artist._id,
                 })
                 .then((res) => {
-                  // if (res.status === 201) toast.success(res.data.message);
-                  // else toast.error(res.data.message);
+                  if (res.status === 201) toast.success(res.data.message);
+                  else toast.error(res.data.message);
                   console.log(res.data);
                 })
-                // .catch((res) => toast.error(res.data.message));
-              // resetForm();
+                .catch((res) => toast.error(res.data.message));
+              resetForm();
             }}
           >
             {({ handleSubmit, handleChange, values, errors }) => (
@@ -155,6 +174,7 @@ function Artist(data: { artist: IArtist; index: number }) {
           </Formik>
         </Box>
       </Modal>
+      <Toaster position="top-center" reverseOrder={false} />
     </div>
   );
 }

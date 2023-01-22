@@ -115,7 +115,18 @@ app.post(
           artist: req.body.artistId,
         },
       },
-      (error, data) => {
+      (error) => {
+        if (error) return res.status(500).send({ error });
+      }
+    );
+    ArtistModel.findByIdAndUpdate(
+      req.body.artistId,
+      {
+        $set: {
+          nfts: newNFT._id,
+        },
+      },
+      (error) => {
         if (error) return res.status(500).send({ error });
       }
     );
