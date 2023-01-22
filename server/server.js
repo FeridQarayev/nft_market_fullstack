@@ -122,7 +122,7 @@ app.post(
     ArtistModel.findByIdAndUpdate(
       req.body.artistId,
       {
-        $set: {
+        $push: {
           nfts: newNFT._id,
         },
       },
@@ -173,7 +173,7 @@ app.post(
     ArtistModel.findByIdAndUpdate(
       req.body.artistId,
       {
-        $set: {
+        $push: {
           nfts: req.body.nftId,
         },
       },
