@@ -3,6 +3,7 @@ import styled from "./createArtist.module.scss";
 import img from "../../images/form/image-placeholder-85@1x.png";
 import { Formik } from "formik";
 import * as Yup from "yup";
+import axios from "axios";
 
 const validationSchema = Yup.object({
   name: Yup.string().required(),
@@ -101,8 +102,15 @@ function CreateArtist() {
             imgUrl: "",
           }}
           validationSchema={validationSchema}
-          onSubmit={(values) => {
+          onSubmit={(values, { resetForm }) => {
             console.log(values);
+            axios
+              .post("http://localhost:8080/api/artists", {
+                ...values,
+                createTime: new Date(),
+              })
+              .then((res) => console.log(res.data));
+            resetForm();
           }}
         >
           {({ handleSubmit, handleChange, values, errors }) => (

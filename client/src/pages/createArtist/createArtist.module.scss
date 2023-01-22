@@ -152,6 +152,9 @@
             font-size: 16px;
             font-style: normal;
             font-weight: 400;
+            &:focus {
+              outline: none;
+            }
           }
         }
         &__select {
@@ -208,6 +211,9 @@
         position: relative;
         transition: all 0.3s ease;
         border-color: transparent;
+        &:hover {
+          transform: scale(0.95);
+        }
         div {
           background-color: transparent;
           letter-spacing: 0px;

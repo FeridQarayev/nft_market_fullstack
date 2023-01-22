@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const express = require("express");
+const cors = require("cors");
 const Joi = require("joi");
 
 const app = express();
@@ -37,6 +38,7 @@ const ArtistModel = mongoose.model("Artist", ArtistSchema);
 
 mongoose.set("strictQuery", false);
 app.use(express.json());
+app.use(cors());
 mongoose
   .connect(
     `mongodb+srv://ferid:PSZde9zf0vkXCbWc@cluster0.tnvvtt5.mongodb.net/?retryWrites=true&w=majority`
@@ -125,6 +127,7 @@ app.post(
 app.post(
   "/api/artists",
   (req, res, next) => {
+    console.log(req.body);
     const { error } = artistValSchema.validate(req.body);
 
     if (error == null) next();
