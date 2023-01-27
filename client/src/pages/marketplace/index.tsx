@@ -23,11 +23,24 @@ interface INFT {
 }
 function Marketplace() {
   const [nfts, setNfts] = useState<INFT[]>([]);
+  const [inpVal, setinpVal] = useState("");
+  const [sort, setSort] = useState(false);
   useEffect(() => {
     getNfts().then((res) => {
       setNfts(res.data);
     });
   }, []);
+
+  const Sorting = () => {
+    setNfts(
+      [...nfts].sort((a: INFT, b: INFT) =>
+        sort ? (a.price > b.price ? 1 : -1) : a.price < b.price ? 1 : -1
+      )
+    );
+
+    setSort(!sort);
+  };
+
   return (
     <Fragment>
       {/* Headline Start */}
@@ -40,7 +53,11 @@ function Marketplace() {
           <div className={styled.headline__container__down}>
             <div className={styled.headline__container__down__search}>
               <div className={styled.headline__container__down__search__text}>
-                <input type="text" placeholder="Search your favourite NFTs" />
+                <input
+                  onChange={(e) => setinpVal(e.target.value)}
+                  type="text"
+                  placeholder="Search your favourite NFTs"
+                />
               </div>
               <img src={search_logo} alt="icon-search" />
             </div>
@@ -65,7 +82,10 @@ function Marketplace() {
                   <div>302</div>
                 </div>
               </div>
-              <div className={styled.nfts__head__container__body__right}>
+              <div
+                className={styled.nfts__head__container__body__right}
+                onClick={() => Sorting()}
+              >
                 <div
                   className={styled.nfts__head__container__body__right__text}
                 >
@@ -82,9 +102,17 @@ function Marketplace() {
         </div>
         <div className={styled.nfts__body}>
           <div className={styled.nfts__body__row}>
-            {nfts.map((nft) => (
-              <NFT key={nft._id} nft={nft} />
-            ))}
+            {nfts
+              .filter((filled) => {
+                if (inpVal === "") return filled;
+                else if (
+                  filled.name.toLowerCase().includes(inpVal.toLowerCase())
+                )
+                  return filled;
+              })
+              .map((nft) => (
+                <NFT key={nft._id} nft={nft} />
+              ))}
           </div>
         </div>
       </div>

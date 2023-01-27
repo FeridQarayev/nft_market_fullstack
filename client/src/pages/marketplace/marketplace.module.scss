@@ -110,6 +110,9 @@
             resize: none;
             text-align: left;
             white-space: nowrap;
+            &:focus {
+              outline: none;
+            }
           }
         }
         img {
